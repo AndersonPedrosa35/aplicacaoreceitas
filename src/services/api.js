@@ -82,8 +82,8 @@ export async function requestAreas() {
     const meals = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?a=list')
       .then((response) => response.json()).then((response) => response.meals);
     return meals;
-  } catch (erro) {
-    console.log(erro);
+  } catch (error) {
+    console.log(error);
   }
 }
 
