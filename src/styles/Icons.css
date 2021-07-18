@@ -2,6 +2,10 @@
   width: 95px;
 }
 
+.copyText {
+  text-align: end;
+}
+
 .icons-shareAndFavorite-container {
   display: flex;
   padding-top: 12px;
@@ -11,6 +15,11 @@
   background-color: inherit;
   border: none;
   margin-left: 7px;
+  outline: none;
+}
+
+.icons-share-btn:focus {
+  border: none;
   outline: none;
 }
 
@@ -50,5 +59,6 @@
 }
 
 .favorite-icon:focus {
+  border: none;
   outline: none;
 }

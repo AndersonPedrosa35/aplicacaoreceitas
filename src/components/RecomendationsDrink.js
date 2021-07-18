@@ -24,7 +24,10 @@ function RecomendationsDrink() {
         <Carousel.Item>
           <div className="recomendations-card-container">
             {recomendationsDrink.slice(0, 2).map((drink, index) => (
-              <Link to={ `/bebidas/${drink.idDrink}` } key={ drink.strDrink }>
+              <Link
+                to={ `/bebidas/${drink.idDrink}` }
+                key={ drink.strDrink }
+              >
                 <Card
                   bg="info"
                   data-testid={ `${index}-recomendation-card` }

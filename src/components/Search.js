@@ -97,6 +97,7 @@ function Search() {
             id="search"
             placeholder="Digite aqui o que procura..."
             className="search-input"
+            autoComplete="off"
             value={ inputSearch }
             onChange={ ({ target }) => setInputSearch(target.value) }
             data-testid="search-input"
@@ -104,42 +105,48 @@ function Search() {
         </label>
       </div>
       <div className="search-radios-container">
-        <label htmlFor="ingredients">
-          Ingrediente
-          <input
-            name="radio"
-            type="radio"
-            value="Ingrediente"
-            id="ingredients"
-            className="ingredients"
-            onChange={ ({ target }) => setRadio(target.value) }
-            data-testid="ingredient-search-radio"
-          />
-        </label>
-        <label htmlFor="name">
-          Nome
-          <input
-            name="radio"
-            type="radio"
-            value="Nome"
-            id="name"
-            className="name"
-            onChange={ ({ target }) => setRadio(target.value) }
-            data-testid="name-search-radio"
-          />
-        </label>
-        <label htmlFor="first-letter">
-          Primeira letra
-          <input
-            name="radio"
-            type="radio"
-            value="Primeira letra"
-            id="first-letter"
-            className="first-letter"
-            onChange={ ({ target }) => setRadio(target.value) }
-            data-testid="first-letter-search-radio"
-          />
-        </label>
+        <div>
+          <label htmlFor="ingredients">
+            Ingrediente
+            <input
+              name="radio"
+              type="radio"
+              value="Ingrediente"
+              id="ingredients"
+              className="ingredients"
+              onChange={ ({ target }) => setRadio(target.value) }
+              data-testid="ingredient-search-radio"
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="name">
+            Nome
+            <input
+              name="radio"
+              type="radio"
+              value="Nome"
+              id="name"
+              className="name"
+              onChange={ ({ target }) => setRadio(target.value) }
+              data-testid="name-search-radio"
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="first-letter">
+            Primeira letra
+            <input
+              name="radio"
+              type="radio"
+              value="Primeira letra"
+              id="first-letter"
+              className="first-letter"
+              onChange={ ({ target }) => setRadio(target.value) }
+              data-testid="first-letter-search-radio"
+            />
+          </label>
+        </div>
       </div>
       <div>
         <Button

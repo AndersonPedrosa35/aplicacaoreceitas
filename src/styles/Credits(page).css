@@ -1,5 +1,6 @@
 .credits-container {
   align-items: center;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,11 +9,15 @@
   text-align: center;
 }
 
+.credits-title {
+  margin-bottom: 30px;
+}
+
 .credits-item {
-  margin-bottom: 10px;
+  margin: 11px;
 }
 
 .credits-footer {
-  display: flex;
-  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-top: 30px;
 }

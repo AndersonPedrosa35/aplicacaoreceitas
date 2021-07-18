@@ -4,6 +4,7 @@ import { Badge, Button } from 'react-bootstrap';
 import List from '../components/List';
 import { requestByDetailsMeal } from '../services/api';
 import Loading from '../components/Loading';
+import return2 from '../images/return2.png';
 import Icons from '../components/Icons';
 import '../styles/DrinkAndFoodProcess(page).css';
 
@@ -46,7 +47,7 @@ function FoodProcess() {
         alcoholicOrNot: '',
         name: strMeal,
         image: strMealThumb,
-        doneDate: dataAtual,
+        doneDate: `Feito em: ${dataAtual}`,
         tags: strTags === null ? null : strTags.split(','),
       };
       return doneElement;
@@ -101,24 +102,41 @@ function FoodProcess() {
         return (
           <div className="food-progress-main-div" key={ index }>
             <div className="progress-align">
-              <img
-                src={ strMealThumb }
-                className="progress-img"
-                alt={ strMeal }
-                data-testid="recipe-photo"
-              />
-              <section className="progressTitle-container">
-                <div>
+              <div className="progress-card">
+                <button
+                  type="button"
+                  className="return-icon-progress"
+                  onClick={ () => window.history.back() }
+                >
+                  <img
+                    className="return-icon"
+                    src={ return2 }
+                    alt="return icon"
+                  />
+                </button>
+                <img
+                  src={ strMealThumb }
+                  className="progress-img"
+                  alt={ strMeal }
+                  data-testid="recipe-photo"
+                />
+                <section className="progressTitle-container">
                   <h1
                     className="progress-title"
                     data-testid="recipe-title"
                   >
                     { strMeal }
                   </h1>
-                </div>
-                <Icons code={ item[0] } />
-              </section>
-              <Badge variant="info" data-testid="recipe-category">{ strCategory }</Badge>
+                  <Icons code={ item[0] } />
+                </section>
+              </div>
+              <Badge
+                variant="info"
+                className="progress-tag"
+                data-testid="recipe-category"
+              >
+                { strCategory }
+              </Badge>
               <List
                 array={ array }
                 ingredientsUsed={ ingredientsUsed }

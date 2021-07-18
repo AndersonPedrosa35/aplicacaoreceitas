@@ -35,12 +35,13 @@ function RecomendationsMeal() {
                     alt={ meal.strMeal }
                   />
                   <Card.Body>
-                    <Card.Title
+                    <h5
                       className="recomendation-title"
+                      style={ { textDecoration: 'none' } }
                       data-testid={ `${index}-recomendation-title` }
                     >
                       {meal.strMeal}
-                    </Card.Title>
+                    </h5>
                   </Card.Body>
                 </Card>
               </Link>

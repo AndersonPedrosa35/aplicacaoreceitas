@@ -1,5 +1,5 @@
-.homeAndReturn-footer-container {
-  background-color: lightgray;
+.homeAndReturn-footer-container1 {
+  background-color: black;
   bottom: 0;
   display: block;
   padding: 7px;
@@ -7,32 +7,34 @@
   width: 100%;
 }
 
-.homeAndReturn-footer {
+.homeAndReturn-footer1 {
   align-items: baseline;
   display: flex;
   justify-content: space-evenly;
 }
 
-.home-icon {
+.home-icon1 {
+  filter: invert(100%);
   height: 45px;
   width: 45px;
 }
 
-.return-btn {
+.return-btn1 {
   background-color: inherit;
   border: none;
   margin-left: 4px;
   outline: none;
 }
 
-.return-btn:focus {
+.return-btn1:focus {
   border: none;
   outline: none;
 }
 
-.return-icon {
+.return-icon1 {
   border: none;
-  height: 26px;
+  filter: invert(100%);
+  height: 30px;
   outline: none;
-  width: 26px;
+  width: 30px;
 }

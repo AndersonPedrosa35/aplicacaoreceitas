@@ -1,53 +1,93 @@
-.noStar {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-  min-width: 100vw;
-}
-
 .star-categoryBtn {
-  background-color: lightgray;
+  border: none;
+  border-radius: 15px;
+  color: rgb(45, 45, 45);
+  font-size: 14px;
+  font-weight: 600;
+  height: 65px;
   margin: 3px;
+  padding: 2px 0;
+  text-align: center;
   width: 114px;
 }
 
-.star-recipes-container {
+.star-btnContainer {
   align-items: center;
   display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
-.noStar-with-header {
-  margin-top: 230px;
+.star-categoryBtn:hover {
+  background: rgb(45, 45, 45);
+  border: solid 1px lightslategray;
+  color: white;
 }
 
+.star-recipes-container {
+  margin: auto;
+  padding-bottom: 58px;
+  width: 21em;
+}
+
+.star-img-container {
+  width: 176px;
+}
+
+
 .star-card {
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  background-color: rgb(23, 162, 184);
+  border-radius: 15px;
   display: flex;
   margin: 15px 0;
   max-width: 100%;
-  padding: 5px;
   text-align: center;
-  width: 330px;
 }
 
 .star-img {
-  width: 50%;
+  border-radius: 15px 0 0 15px;
+  width: 100%;
 }
 
 .star-cardBody {
   align-items: center;
   display: flex;
   flex-direction: column;
+  font-size: 0.9rem;
   justify-content: center;
 }
 
+.star-category {
+  font-size: 12px;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+  width: 100px;
+}
+
 .star-cardTitle {
+  color: black;
   display: inline-block;
-  max-height: 2.3em;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  word-wrap: break-word;
+  white-space: nowrap;
+  width: 158px;
+}
+
+.noStar {
+  align-items: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  min-height: 85vh;
+  min-width: 85vw;
+}
+
+.noStar-with-header {
+  align-items: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  min-height: 65vh;
+  min-width: 65vw;
 }

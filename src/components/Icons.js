@@ -4,8 +4,6 @@ import { Overlay, Tooltip } from 'react-bootstrap';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import shareIcon from '../images/shareIcon.svg';
-import home from '../images/house.svg';
-import return0 from '../images/return0.svg';
 import '../styles/Icons.css';
 import { Context } from '../context/ContextForm';
 
@@ -122,7 +120,7 @@ function Icons(item) {
   }
 
   return (
-    <div>
+    <div className="icons-container">
       <div className="icons-shareAndFavorite-container">
         <button
           ref={ target }
@@ -144,32 +142,12 @@ function Icons(item) {
                 </Link>
               )
               : (
-                <div>
-                  <Link to="/comidas">
-                    <img
-                      className="home-icon"
-                      src={ home }
-                      alt="home icon"
-                    />
-                  </Link>
-                  <button
-                    type="button"
-                    className="icons-return-btn"
-                    onClick={ () => window.history.back() }
-                  >
-                    <img
-                      className="return-icon"
-                      src={ return0 }
-                      alt="return icon"
-                    />
-                  </button>
-                  <img
-                    className="icons-share-btn"
-                    src={ shareIcon }
-                    alt="share icon"
-                    data-testid={ shareData(item, pathname) }
-                  />
-                </div>
+                <img
+                  className="icons-share-btn"
+                  src={ shareIcon }
+                  alt="share icon"
+                  data-testid={ shareData(item, pathname) }
+                />
               )
           }
         </button>

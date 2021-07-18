@@ -12,6 +12,9 @@
   color: #17a2b8;
 }
 
+.details-tag {
+  margin-bottom: 1rem;
+}
 
 .details-align {
   margin: auto;
@@ -24,7 +27,7 @@
   background-color: #17a2b8;
   border-radius: 0 0 10px 10px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: auto;
   width: 100%;
 }
@@ -54,4 +57,21 @@
   padding: 9px;
   position: fixed;
   width: 97%;
+}
+
+.return-icon-detail {
+  background: rgba(23, 162, 184, 0.4);
+  border: none;
+  border-radius: 100%;
+  margin: 5px 0 0 5px;
+  padding: 4px;
+  position: absolute;
+}
+
+.return-icon-detail:focus {
+  outline: none;
+}
+
+.details-card {
+  position: relative;
 }

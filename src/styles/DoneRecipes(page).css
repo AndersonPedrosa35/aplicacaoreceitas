@@ -1,13 +1,37 @@
+.done-container-all {
+  padding-bottom: 58px;
+}
+
+.done-btnContainer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .done-category-btn {
-  background-color: lightgray;
+  border: none;
+  border-radius: 15px;
+  color: rgb(45, 45, 45);
+  font-size: 14px;
+  font-weight: 600;
+  height: 65px;
   margin: 3px;
+  padding: 2px 0;
+  text-align: center;
   width: 114px;
+}
+
+.done-category-btn:hover {
+  background: rgb(45, 45, 45);
+  border: solid 1px lightslategray;
+  color: white;
 }
 
 .no-done-text {
   align-items: center;
+  color: white;
   display: flex;
   justify-content: center;
-  min-height: 76vh;
-  min-width: 76vw;
+  min-height: 65vh;
+  min-width: 65vw;
 }

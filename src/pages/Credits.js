@@ -1,29 +1,31 @@
 import React from 'react';
-import HomeAndReturn from '../components/HomeAndReturn';
+import HomeAndReturn1 from '../components/HomeAndReturn1';
 import '../styles/Credits(page).css';
 
 function Credits() {
   return (
-    <div className="credits-container">
-      <div className="credits-item">
-        <h3>App foi desenvolvido por:</h3>
+    <div>
+      <div className="credits-container">
+        <div>
+          <h2 className="credits-title">Desenvolvido por:</h2>
+        </div>
+        <div>
+          <h4 className="credits-item"><strong>Abimael Albuquerque</strong></h4>
+        </div>
+        <div>
+          <h4 className="credits-item"><strong>Anderson Pedrosa</strong></h4>
+        </div>
+        <div>
+          <h4 className="credits-item"><strong>André Arnoni</strong></h4>
+        </div>
+        <div>
+          <h4 className="credits-item"><strong>Renan Antunes</strong></h4>
+        </div>
+        <footer className="credits-footer">
+          Copyrigth© 2021 - Todos os direitos reservados
+        </footer>
       </div>
-      <div className="credits-item">
-        <h4><strong>Abimael Albuquerque</strong></h4>
-      </div>
-      <div className="credits-item">
-        <h4><strong>Anderson Pedrosa</strong></h4>
-      </div>
-      <div className="credits-item">
-        <h4><strong>André Arnoni</strong></h4>
-      </div>
-      <div className="credits-item">
-        <h4><strong>Renan Antunes</strong></h4>
-      </div>
-      <footer className="credits-footer">
-        Copyrigth© 2021 - Todos os direitos reservados
-      </footer>
-      <HomeAndReturn />
+      <HomeAndReturn1 />
     </div>
   );
 }

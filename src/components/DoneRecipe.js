@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import copy from 'clipboard-copy';
 import shareIcon from '../images/shareIcon.svg';
@@ -19,9 +18,9 @@ function DoneRecipe({ recipe: {
   useEffect(() => {}, [copiedLink]);
 
   return (
-    <div className="done-recipes">
+    <div className="done-align">
       <div className="done-card">
-        <div>
+        <div className="done-img-container">
           <Link to={ `/${type}s/${id}` }>
             <img
               src={ image }
@@ -32,25 +31,31 @@ function DoneRecipe({ recipe: {
             />
           </Link>
         </div>
-        <Card.Body className="done-body">
-          <p data-testid={ `${index}-horizontal-top-text` }>
+        <div className="done-body">
+          <p className="done-category" data-testid={ `${index}-horizontal-top-text` }>
             {
               type === 'comida' ? `${area} - ${category}`
                 : `${alcoholicOrNot} - ${category}`
             }
           </p>
           <Link to={ `/${type}s/${id}` }>
-            <Card.Title
+            <h5
               className="done-card-title"
               data-testid={ `${index}-horizontal-name` }
             >
               {name}
-            </Card.Title>
+            </h5>
           </Link>
-          <p data-testid={ `${index}-horizontal-done-date` }>{doneDate}</p>
+          <p
+            className="done-date"
+            data-testid={ `${index}-horizontal-done-date` }
+          >
+            {doneDate}
+          </p>
           {tags === null ? null : tags.map((tag, i) => (
             <p
               key={ i }
+              className="done-tag"
               data-testid={ `${index}-${tag}-horizontal-tag` }
             >
               {tag}
@@ -71,7 +76,7 @@ function DoneRecipe({ recipe: {
                   data-testid={ `${index}-horizontal-share-btn` }
                 />)}
           </button>
-        </Card.Body>
+        </div>
       </div>
     </div>
   );

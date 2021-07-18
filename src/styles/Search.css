@@ -11,9 +11,12 @@
 }
 
 .search-container {
+  align-items: center;
   color: white;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
 .search-input {
@@ -35,6 +38,7 @@
 .search-radios-container {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .search-btn {

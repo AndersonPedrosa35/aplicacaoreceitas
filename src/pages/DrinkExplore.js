@@ -17,7 +17,7 @@ function DrinkExplore() {
     request();
   }, []);
 
-  if (item === null) return null;
+  if (item === undefined || item === null) return null;
   return (
     <div>
       <Header title="Explorar Bebidas" />

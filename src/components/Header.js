@@ -46,4 +46,4 @@ Header.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default React.memo(Header);
+export default Header;

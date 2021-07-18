@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Badge, Button } from 'react-bootstrap';
 import List from '../components/List';
 import RecomendationsMeal from '../components/RecomendationsMeal';
 import { requestByDetailsDrink } from '../services/api';
 import Loading from '../components/Loading';
+import return2 from '../images/return2.png';
 import Icons from '../components/Icons';
 import '../styles/DrinkAndFoodDetails(page).css';
 
@@ -14,10 +15,19 @@ function DrinkDetails() {
   const [first, setFirst] = useState(false);
   const [progress, setProgress] = useState('Iniciar Receita');
   const [loading, setLoading] = useState(null);
+  const [finished, setFinished] = useState(null);
+  const done = JSON.parse(localStorage.getItem('doneRecipes'));
+  const history = useHistory();
 
   function setDrinkOnState(drink2BeSet) {
     setDrink([...drink2BeSet]);
   }
+
+  useEffect(() => {
+    if (done) {
+      done.map((recipe) => recipe.id.includes(id) && setFinished(true));
+    }
+  }, [done, id]);
 
   useEffect(() => {
     setLoading(true);
@@ -40,14 +50,13 @@ function DrinkDetails() {
   }
 
   function start() {
-    console.log(drink);
     const { idDrink } = drink[0];
     const inProgress = JSON.parse(localStorage.getItem('inProgressRecipes'));
     inProgress.cocktails[`${idDrink}`] = [];
     localStorage.setItem('inProgressRecipes', JSON.stringify(inProgress));
     setProgress('Continuar Receita');
   }
-  console.log(drink);
+
   if (!first && drink.length > 0) {
     progressFunction();
   }
@@ -64,24 +73,41 @@ function DrinkDetails() {
         return (
           <div className="food-details-main-div" key={ index }>
             <div className="details-align">
-              <img
-                src={ strDrinkThumb }
-                className="details-img"
-                alt={ strDrink }
-                data-testid="recipe-photo"
-              />
-              <section className="detailsTitle-container">
-                <div>
+              <div className="details-card">
+                <button
+                  type="button"
+                  className="return-icon-detail"
+                  onClick={ () => window.history.back() }
+                >
+                  <img
+                    className="return-icon"
+                    src={ return2 }
+                    alt="return icon"
+                  />
+                </button>
+                <img
+                  src={ strDrinkThumb }
+                  className="details-img"
+                  alt={ strDrink }
+                  data-testid="recipe-photo"
+                />
+                <section className="detailsTitle-container">
                   <h1
                     className="details-title"
                     data-testid="recipe-title"
                   >
                     { strDrink }
                   </h1>
-                </div>
-                <Icons code={ drink[0] } />
-              </section>
-              <Badge variant="info" data-testid="recipe-category">{strAlcoholic}</Badge>
+                  <Icons code={ drink[0] } />
+                </section>
+              </div>
+              <Badge
+                variant="info"
+                className="details-tag"
+                data-testid="recipe-category"
+              >
+                {strAlcoholic}
+              </Badge>
               <List drinks={ drinks } />
               <h2 className="section-title">Instructions</h2>
               <p
@@ -93,17 +119,21 @@ function DrinkDetails() {
               <h2 className="section-title">Recomendations</h2>
             </div>
             <RecomendationsMeal />
-            <Link to={ `/bebidas/${idDrink}/in-progress` }>
-              <Button
-                variant="info"
-                type="button"
-                className="details-startRecipeBtn"
-                data-testid="start-recipe-btn"
-                onClick={ start }
-              >
-                {progress}
-              </Button>
-            </Link>
+            { finished
+              ? (
+                null)
+              : (
+                <Button
+                  variant="info"
+                  type="button"
+                  className="details-startRecipeBtn"
+                  data-testid="start-recipe-btn"
+                  onClick={ () => {
+                    start(); history.push(`/bebidas/${idDrink}/in-progress`);
+                  } }
+                >
+                  {progress}
+                </Button>)}
           </div>
         );
       }))
