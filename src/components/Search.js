@@ -95,7 +95,7 @@ function Search() {
           <input
             type="text"
             id="search"
-            placeholder="Digite aqui o que procura..."
+            placeholder={ 'Qual o "rango" ou "goró" de hoje?' }
             className="search-input"
             autoComplete="off"
             value={ inputSearch }

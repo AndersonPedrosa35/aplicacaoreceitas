@@ -2,7 +2,7 @@ import React, { useRef, useState, useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { Overlay, Tooltip } from 'react-bootstrap';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
-import blackHeartIcon from '../images/blackHeartIcon.svg';
+import blackHeartIcon from '../images/blackHeartIcon.gif';
 import shareIcon from '../images/shareIcon.svg';
 import '../styles/Icons.css';
 import { Context } from '../context/ContextForm';
@@ -159,6 +159,7 @@ function Icons(item) {
           <img
             src={ changeIcon ? whiteHeartIcon : blackHeartIcon }
             alt="favorite icons"
+            className="fav"
             data-testid={ imageData(item, pathname) }
           />
         </button>

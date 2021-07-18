@@ -58,6 +58,11 @@
   outline: none;
 }
 
+.fav {
+  height: 30px;
+  width: 35px;
+}
+
 .favorite-icon:focus {
   border: none;
   outline: none;
