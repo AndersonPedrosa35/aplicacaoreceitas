@@ -38,3 +38,29 @@
   outline: none;
   width: 30px;
 }
+
+@media screen and ( min-width : 768px ) and ( max-width : 991px ) {
+
+  .home-icon1 {
+    height: 3.2rem;
+    width: 3.2rem;
+  }
+
+  .return-icon1 {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}
+
+@media screen and ( min-width : 992px ) {
+
+  .home-icon1 {
+    height: 3.4rem;
+    width: 3.4rem;
+  }
+
+  .return-icon1 {
+    height: 2.7rem;
+    width: 2.7rem;
+  }
+}

@@ -1,15 +1,15 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/FoodByCountry(page).css';
-import { Card } from 'react-bootstrap';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Loading from '../components/Loading';
+import Search from '../components/Search';
 import { Context } from '../context/ContextForm';
 import { requestAreas, requestMeal, requestMealByAreas } from '../services/api';
 
 function FoodByCountry() {
-  const { setFirstMeals, firstMeals, area, setArea } = useContext(Context);
+  const { setFirstMeals, firstMeals, area, setArea, onSearch } = useContext(Context);
   const [loading, setLoading] = useState(null);
   const numOfMeals = 12;
 
@@ -41,6 +41,7 @@ function FoodByCountry() {
   return (
     <div>
       <Header title="Explorar Origem" />
+      { onSearch && <Search /> }
       <div className="country-container">
         <select
           className="country-select"
@@ -64,26 +65,25 @@ function FoodByCountry() {
             to={ `/comidas/${meal.idMeal}` }
             key={ meal.strMeal }
           >
-            <Card
-              bg="info"
+            <div
               data-testid={ `${index}-recipe-card` }
               className="card"
             >
-              <Card.Img
+              <img
                 data-testid={ `${index}-card-img` }
                 className="cardImg"
                 src={ meal.strMealThumb }
                 alt={ meal.strMeal }
               />
-              <Card.Body>
-                <Card.Title
+              <div className="card-body">
+                <h5
                   className="countryCard-title"
                   data-testid={ `${index}-card-name` }
                 >
                   {meal.strMeal}
-                </Card.Title>
-              </Card.Body>
-            </Card>
+                </h5>
+              </div>
+            </div>
           </Link>
         ))}
       </div>

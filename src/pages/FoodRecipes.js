@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/DrinkAndFoodRecipes(page).css';
-import { Card } from 'react-bootstrap';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Context } from '../context/ContextForm';
 import Loading from '../components/Loading';
+import Search from '../components/Search';
 import { searchByCategoryFood } from '../services/searchApi';
 import { requestMeal } from '../services/api';
 
@@ -14,7 +14,7 @@ function FoodRecipes() {
     firstMeals,
     foodPerIngredient,
     setFoodPerIngredient,
-    changeFood } = useContext(Context);
+    changeFood, onSearch } = useContext(Context);
   const [firstCategories, setFirstCategories] = useState([]);
   const [loading, setLoading] = useState(null);
   const numOfMeals = 12;
@@ -66,9 +66,9 @@ function FoodRecipes() {
   return (
     <div>
       <Header title="Comidas" />
+      { onSearch && <Search /> }
       <div className="recipesBtn-container">
         <button
-          variant="outline-dark"
           className="recipes-categoryBtn"
           data-testid="All-category-filter"
           onClick={ changeFood ? handleClick1 : handleClick }
@@ -78,7 +78,6 @@ function FoodRecipes() {
         </button>
         {firstCategories.map((category, index) => (
           <button
-            variant="outline-dark"
             className="recipes-categoryBtn"
             onClick={ changeFood ? handleClick1 : handleClick }
             data-testid={ `${category.strCategory}-category-filter` }
@@ -92,30 +91,28 @@ function FoodRecipes() {
       <div className="recipesCard-container">
         {(changeFood ? foodPerIngredient : firstMeals).map((meal, index) => (
           <Link
-            className="container-card"
             to={ `/comidas/${meal.idMeal}` }
             key={ meal.strMeal }
           >
-            <Card
-              bg="info"
+            <div
               data-testid={ `${index}-recipe-card` }
               className="card"
             >
-              <Card.Img
-                data-testid={ `${index}-card-img` }
+              <img
                 className="cardImg"
+                data-testid={ `${index}-card-img` }
                 src={ meal.strMealThumb }
                 alt={ meal.strMeal }
               />
-              <Card.Body>
-                <Card.Title
+              <div className="card-body">
+                <h5
                   className="recipesCard-title"
                   data-testid={ `${index}-card-name` }
                 >
                   {meal.strMeal}
-                </Card.Title>
-              </Card.Body>
-            </Card>
+                </h5>
+              </div>
+            </div>
           </Link>
         ))}
       </div>

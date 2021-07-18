@@ -1,13 +1,13 @@
 .first-letter {
-  margin-left: 3px;
+  margin-left: 5px;
 }
 
 .ingredients {
-  margin-left: 3px;
+  margin-left: 5px;
 }
 
 .name {
-  margin-left: 3px;
+  margin-left: 5px;
 }
 
 .search-container {
@@ -20,7 +20,7 @@
 }
 
 .search-input {
-  background: black;
+  background: rgb(27, 27, 27);
   border: none;
   border-bottom: solid 1px white;
   color: white;
@@ -38,13 +38,54 @@
 .search-radios-container {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 330px;
 }
 
 .search-btn {
   background-color: rgb(37, 154, 175);
   border-radius: 10px;
   margin-bottom: 18px;
-  max-width: 100%;
   width: 330px;
+}
+
+@media screen and ( min-width : 768px ) and ( max-width : 991px ) {
+
+  .search-input {
+    font-size: 20px;
+    max-width: 100%;
+    width: 400px;
+  }
+
+  .search-radios-container {
+    display: flex;
+    font-size: 19px;
+    justify-content: space-between;
+    width: 400px;
+  }
+
+  .search-btn {
+    font-size: 19px;
+    width: 400px;
+  }
+}
+
+@media screen and ( min-width : 992px ) {
+
+  .search-input {
+    font-size: 22px;
+    max-width: 100%;
+    width: 500px;
+  }
+
+  .search-radios-container {
+    display: flex;
+    font-size: 21px;
+    justify-content: space-between;
+    width: 500px;
+  }
+
+  .search-btn {
+    font-size: 21px;
+    width: 500px;
+  }
 }

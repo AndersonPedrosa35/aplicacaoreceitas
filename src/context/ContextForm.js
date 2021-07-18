@@ -20,6 +20,7 @@ function Provider({ children }) {
   const [search, setSearch] = useState([]);
   const [historyPage, sethistoryPage] = useState([]);
   const [flags, setFlags] = useState([]);
+  const [onSearch, setOnSearch] = useState(false);
 
   const object = {
     email,
@@ -54,6 +55,8 @@ function Provider({ children }) {
     sethistoryPage,
     flags,
     setFlags,
+    onSearch,
+    setOnSearch,
   };
 
   useEffect(() => {

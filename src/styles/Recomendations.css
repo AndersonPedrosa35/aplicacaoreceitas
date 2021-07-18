@@ -37,3 +37,19 @@ img {
   margin: 180px 0 0 16px;
   padding: 15px;
 }
+
+.card {
+  background-color: rgb(23, 162, 184);
+  border: none;
+  border-radius: 15px;
+  color: black;
+  height: 238px;
+  margin: 5px;
+  max-width: 100%;
+  text-align: center;
+  width: 169px;
+}
+
+.card-body {
+  padding: 10px;
+}

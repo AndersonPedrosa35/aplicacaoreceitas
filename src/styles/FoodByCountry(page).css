@@ -13,6 +13,10 @@
   width: 170px;
 }
 
+.country-select:focus {
+  outline: none;
+}
+
 .country-card-container {
   display: flex;
   flex-wrap: wrap;
@@ -21,13 +25,19 @@
 }
 
 .card {
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  background-color: rgb(23, 162, 184);
+  border: none;
+  border-radius: 15px;
   color: black;
   height: 238px;
   margin: 5px;
   max-width: 100%;
   text-align: center;
   width: 169px;
+}
+
+.country-flag {
+  width: 25px;
 }
 
 .countryCard-title {

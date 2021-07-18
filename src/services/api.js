@@ -96,3 +96,13 @@ export async function requestMealByAreas(area) {
     console.log(error);
   }
 }
+
+export async function getCountries() {
+  try {
+    const requestFlags = await fetch('https://restcountries.eu/rest/v2/all')
+      .then((response) => response.json()).then((response) => response);
+    return requestFlags;
+  } catch (error) {
+    console.log(error);
+  }
+}

@@ -90,12 +90,12 @@ function Search() {
 
   return (
     <form onSubmit={ submit } className="search-container">
-      <div>
+      <div className="search-input-container">
         <label htmlFor="search">
           <input
             type="text"
             id="search"
-            placeholder={ 'Qual o "rango" ou "goró" de hoje?' }
+            placeholder="Digite aqui o que procura..."
             className="search-input"
             autoComplete="off"
             value={ inputSearch }
@@ -148,7 +148,7 @@ function Search() {
           </label>
         </div>
       </div>
-      <div>
+      <div className="search-btn-container">
         <Button
           variant="outline-dark"
           type="submit"

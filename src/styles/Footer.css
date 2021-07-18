@@ -23,3 +23,33 @@
 .explore-icon {
   filter: invert();
 }
+
+@media screen and ( min-width : 768px ) and ( max-width : 991px ) {
+
+  .drink-icon {
+    width: 2.8rem;
+  }
+
+  .explore-icon {
+    width: 2.8rem;
+  }
+
+  .food-icon {
+    width: 2.8rem;
+  }
+}
+
+@media screen and ( min-width : 992px ) {
+
+  .drink-icon {
+    width: 3rem;
+  }
+
+  .explore-icon {
+    width: 3rem;
+  }
+
+  .food-icon {
+    width: 3rem;
+  }
+}
