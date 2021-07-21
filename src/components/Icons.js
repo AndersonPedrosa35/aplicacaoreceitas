@@ -168,7 +168,6 @@ function Icons(item) {
        || historyPage[historyPage
          .length - 2] === '/receitas-favoritas')
           && <p className="copyText">Link copiado!</p> }
-
     </div>
   );
 }

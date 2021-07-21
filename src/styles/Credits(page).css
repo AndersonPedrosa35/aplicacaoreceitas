@@ -9,12 +9,18 @@
   text-align: center;
 }
 
-.credits-title {
-  margin-bottom: 30px;
+.credits-item {
+  font-size: 1.3rem;
+  margin: 11px;
 }
 
-.credits-item {
-  margin: 11px;
+.credits-img {
+  width: 70px;
+}
+
+.credits {
+  align-items: center;
+  display: flex;
 }
 
 .credits-footer {

@@ -15,6 +15,7 @@ function Search() {
     setFirstMeals,
     setFirstDrinks } = useContext(Context);
   const history = useHistory();
+  const { pathname } = history.location;
 
   function invokeAlert(fn, message) {
     return fn(message);
@@ -88,6 +89,13 @@ function Search() {
     }
   }
 
+  function choice() {
+    if (pathname.includes('/comidas')) {
+      return 'Digite o prato especial de hoje...';
+    }
+    return 'Digite o drink/coquetel de hoje...';
+  }
+
   return (
     <form onSubmit={ submit } className="search-container">
       <div className="search-input-container">
@@ -95,7 +103,7 @@ function Search() {
           <input
             type="text"
             id="search"
-            placeholder="Digite aqui o que procura..."
+            placeholder={ choice() }
             className="search-input"
             autoComplete="off"
             value={ inputSearch }
