@@ -4,8 +4,8 @@ import { Button } from 'react-bootstrap';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import '../styles/Explore(page).css';
-// import food from '../videos/food.mp4';
-// import drink from '../videos/drink.mp4';
+import food from '../videos/food.mp4';
+import drink from '../videos/drink.mp4';
 
 function Explore() {
   return (
@@ -13,7 +13,7 @@ function Explore() {
       <Header title="Explorar" />
       <div className="explore-container">
         <div className="explore-videoAndBtn">
-          {/* <video
+          <video
             src={ food }
             type="video/mp4"
             className="video"
@@ -21,7 +21,7 @@ function Explore() {
             autoPlay
           >
             <track kind="captions" />
-          </video> */}
+          </video>
           <Link to="/explorar/comidas" className="explore-food-container">
             <Button
               variant="info"
@@ -34,7 +34,7 @@ function Explore() {
           </Link>
         </div>
         <div className="explore-videoAndBtn">
-          {/* <video
+          <video
             src={ drink }
             type="video/mp4"
             className="video"
@@ -42,7 +42,7 @@ function Explore() {
             autoPlay
           >
             <track kind="captions" />
-          </video> */}
+          </video>
           <Link to="/explorar/bebidas" className="explore-drink-container">
             <Button
               variant="info"
