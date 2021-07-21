@@ -3,24 +3,24 @@ import { Link } from 'react-router-dom';
 import '../styles/FoodByCountry(page).css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Loading from '../components/Loading';
+// import Loading from '../components/Loading';
 import Search from '../components/Search';
 import { Context } from '../context/ContextForm';
 import { requestAreas, requestMeal, requestMealByAreas } from '../services/api';
 
 function FoodByCountry() {
   const { setFirstMeals, firstMeals, area, setArea, onSearch } = useContext(Context);
-  const [loading, setLoading] = useState(null);
+  // const [loading, setLoading] = useState(null);
   const numOfMeals = 12;
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
     const fetchMeals = async () => {
       const meals = await requestMeal();
       const areas = await requestAreas();
       setFirstMeals(meals.slice(0, numOfMeals));
       setArea(areas);
-      setLoading(false);
+      // setLoading(false);
     };
     fetchMeals();
   }, [setFirstMeals, setArea]);
@@ -37,7 +37,7 @@ function FoodByCountry() {
     }
   }
 
-  if (loading) return <Loading />;
+  // if (loading) return <Loading />;
   return (
     <div>
       <Header title="Explorar Origem" />

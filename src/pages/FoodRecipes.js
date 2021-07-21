@@ -4,7 +4,7 @@ import '../styles/DrinkAndFoodRecipes(page).css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Context } from '../context/ContextForm';
-import Loading from '../components/Loading';
+// import Loading from '../components/Loading';
 import Search from '../components/Search';
 import { searchByCategoryFood } from '../services/searchApi';
 import { requestMeal } from '../services/api';
@@ -16,17 +16,17 @@ function FoodRecipes() {
     setFoodPerIngredient,
     changeFood, onSearch } = useContext(Context);
   const [firstCategories, setFirstCategories] = useState([]);
-  const [loading, setLoading] = useState(null);
+  // const [loading, setLoading] = useState(null);
   const numOfMeals = 12;
   const numOfCategories = 5;
   const btnClass = 'recipes-categoryBtnAlternative';
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
     const fetchMeals = async () => {
       const meals = await requestMeal();
       setFirstMeals(meals.slice(0, numOfMeals));
-      setLoading(false);
+      // setLoading(false);
     };
     fetchMeals();
   }, [setFirstMeals]);
@@ -62,7 +62,7 @@ function FoodRecipes() {
     setFoodPerIngredient(meals.splice(0, numOfMeals));
   }
 
-  if (loading) return <Loading />;
+  // if (loading) return <Loading />;
   return (
     <div>
       <Header title="Comidas" />

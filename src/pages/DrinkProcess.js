@@ -5,7 +5,7 @@ import List from '../components/List';
 import { requestByDetailsDrink } from '../services/api';
 import Icons from '../components/Icons';
 import return2 from '../images/return2.png';
-import Loading from '../components/Loading';
+// import Loading from '../components/Loading';
 import '../styles/DrinkAndFoodProcess(page).css';
 
 const returnArrayOfIngredients = (object) => {
@@ -23,7 +23,7 @@ const returnArrayOfIngredients = (object) => {
 function DrinkProcess() {
   const params = useParams();
   const [drink, setDrink] = useState([]);
-  const [loading, setLoading] = useState(null);
+  // const [loading, setLoading] = useState(null);
   const data = new Date();
   const dia = String(data.getDate()).padStart(2, '0');
   const mes = String(data.getMonth() + 1).padStart(2, '0');
@@ -79,16 +79,16 @@ function DrinkProcess() {
   }
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
     const request = async () => {
       const result = await requestByDetailsDrink(params.id);
       setDrink(result.drinks);
-      setLoading(false);
+      // setLoading(false);
     };
     request();
   }, [params.id]);
 
-  if (loading) return <Loading />;
+  // if (loading) return <Loading />;
   return (
     drink && (
       drink.map((

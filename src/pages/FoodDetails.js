@@ -4,7 +4,7 @@ import { Badge, Button } from 'react-bootstrap';
 import List from '../components/List';
 import RecomendationsDrink from '../components/RecomendationsDrink';
 import { requestByDetailsMeal } from '../services/api';
-import Loading from '../components/Loading';
+// import Loading from '../components/Loading';
 import return2 from '../images/return2.png';
 import Icons from '../components/Icons';
 import '../styles/DrinkAndFoodDetails(page).css';
@@ -14,7 +14,7 @@ function FoodDetails() {
   const [item, setItem] = useState([]);
   const [first, setFirst] = useState(false);
   const [progress, setProgress] = useState('Iniciar Receita');
-  const [loading, setLoading] = useState(null);
+  // const [loading, setLoading] = useState(null);
   const [finished, setFinished] = useState(null);
   const done = JSON.parse(localStorage.getItem('doneRecipes'));
   const history = useHistory();
@@ -26,11 +26,11 @@ function FoodDetails() {
   }, [done, params.id]);
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
     const request = async () => {
       const result = await requestByDetailsMeal(params.id);
       setItem(result.meals);
-      setLoading(false);
+      // setLoading(false);
     };
     request();
   }, [params.id]);
@@ -57,7 +57,7 @@ function FoodDetails() {
     progressFunction();
   }
 
-  if (loading) return <Loading />;
+  // if (loading) return <Loading />;
   return (
     item && (
       item.map((
