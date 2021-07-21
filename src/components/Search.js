@@ -91,9 +91,9 @@ function Search() {
 
   function choice() {
     if (pathname.includes('/comidas')) {
-      return 'Digite o prato especial de hoje...';
+      return 'Digite o "Rango" de hoje...';
     }
-    return 'Digite o drink/coquetel de hoje...';
+    return 'Digite a "Birita" de hoje...';
   }
 
   return (
