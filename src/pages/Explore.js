@@ -9,7 +9,7 @@ import drink from '../videos/drink.mp4';
 
 function Explore() {
   return (
-    <div>
+    <div className="explore-container-all">
       <Header title="Explorar" />
       <div className="explore-container">
         <div className="explore-videoAndBtn">

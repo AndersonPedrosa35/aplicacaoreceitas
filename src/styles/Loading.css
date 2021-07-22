@@ -1,8 +1,14 @@
-.notFound-title {
+.loading-container {
   align-items: center;
   color: white;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   min-height: 100vh;
   min-width: 100vw;
+}
+
+.loading-img {
+  margin-bottom: 20px;
+  width: 120px;
 }

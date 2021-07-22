@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Badge, Button } from 'react-bootstrap';
 import List from '../components/List';
 import RecomendationsDrink from '../components/RecomendationsDrink';
 import { requestByDetailsMeal } from '../services/api';
+import Loading from '../components/Loading';
+import return2 from '../images/return2.png';
 import Icons from '../components/Icons';
 import '../styles/DrinkAndFoodDetails(page).css';
 
@@ -12,11 +14,23 @@ function FoodDetails() {
   const [item, setItem] = useState([]);
   const [first, setFirst] = useState(false);
   const [progress, setProgress] = useState('Iniciar Receita');
+  const [loading, setLoading] = useState(null);
+  const [finished, setFinished] = useState(null);
+  const done = JSON.parse(localStorage.getItem('doneRecipes'));
+  const history = useHistory();
 
   useEffect(() => {
+    if (done) {
+      done.map((recipe) => recipe.id.includes(params.id) && setFinished(true));
+    }
+  }, [done, params.id]);
+
+  useEffect(() => {
+    setLoading(true);
     const request = async () => {
       const result = await requestByDetailsMeal(params.id);
       setItem(result.meals);
+      setLoading(false);
     };
     request();
   }, [params.id]);
@@ -43,6 +57,7 @@ function FoodDetails() {
     progressFunction();
   }
 
+  if (loading) return <Loading />;
   return (
     item && (
       item.map((
@@ -54,7 +69,18 @@ function FoodDetails() {
         return (
           <div className="food-details-main-div" key={ index }>
             <div className="details-align">
-              <div>
+              <div className="details-card">
+                <button
+                  type="button"
+                  className="return-icon-detail"
+                  onClick={ () => window.history.back() }
+                >
+                  <img
+                    className="return-icon"
+                    src={ return2 }
+                    alt="return icon"
+                  />
+                </button>
                 <img
                   src={ strMealThumb }
                   className="details-img"
@@ -73,6 +99,7 @@ function FoodDetails() {
               </div>
               <Badge
                 variant="info"
+                className="details-tag"
                 data-testid="recipe-category"
               >
                 { strCategory }
@@ -97,17 +124,21 @@ function FoodDetails() {
               <h2 className="section-title">Recomendations</h2>
             </div>
             <RecomendationsDrink />
-            <Link to={ `/comidas/${idMeal}/in-progress` }>
-              <Button
-                type="button"
-                variant="info"
-                className="details-startRecipeBtn"
-                data-testid="start-recipe-btn"
-                onClick={ start }
-              >
-                {progress}
-              </Button>
-            </Link>
+            { finished
+              ? (
+                null)
+              : (
+                <Button
+                  type="button"
+                  variant="info"
+                  className="details-startRecipeBtn"
+                  data-testid="start-recipe-btn"
+                  onClick={ () => {
+                    start(); history.push(`/comidas/${idMeal}/in-progress`);
+                  } }
+                >
+                  {progress}
+                </Button>)}
           </div>
         );
       }))

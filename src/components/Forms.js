@@ -47,6 +47,7 @@ function Forms() {
           <input
             value={ email }
             className="login-input"
+            autoComplete="off"
             placeholder="Digite seu email"
             onChange={ ({ target }) => setEmail(target.value) }
             type="email"

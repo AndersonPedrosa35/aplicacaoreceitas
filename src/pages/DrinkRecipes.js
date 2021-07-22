@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/DrinkAndFoodRecipes(page).css';
-import { Card } from 'react-bootstrap';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Context } from '../context/ContextForm';
+import Loading from '../components/Loading';
+import Search from '../components/Search';
 import { searchByCategoryDrink } from '../services/searchApi';
 import { requestDrink } from '../services/api';
 
@@ -13,16 +14,19 @@ function DrinkRecipes() {
     firstDrinks,
     drinkPerIngredient,
     setDrinkPerIngredient,
-    changeDrink } = useContext(Context);
+    changeDrink, onSearch } = useContext(Context);
   const [firstCategories, setFirstCategories] = useState([]);
+  const [loading, setLoading] = useState(null);
   const numOfDrinks = 12;
   const numOfCategories = 5;
   const btnClass = 'recipes-categoryBtnAlternative';
 
   useEffect(() => {
+    setLoading(true);
     const fetchDrinks = async () => {
       const drinks = await requestDrink();
       setFirstDrinks(drinks.slice(0, numOfDrinks));
+      setLoading(false);
     };
     fetchDrinks();
   }, [setFirstDrinks]);
@@ -58,12 +62,13 @@ function DrinkRecipes() {
     setDrinkPerIngredient(drinks.splice(0, numOfDrinks));
   }
 
+  if (loading) return <Loading />;
   return (
     <div>
       <Header title="Bebidas" />
+      { onSearch && <Search /> }
       <div className="recipesBtn-container">
         <button
-          variant="outline-dark"
           className="recipes-categoryBtn"
           data-testid="All-category-filter"
           onClick={ changeDrink ? handleClick1 : handleClick }
@@ -73,7 +78,6 @@ function DrinkRecipes() {
         </button>
         {firstCategories.map((category, index) => (
           <button
-            variant="outline-dark"
             className="recipes-categoryBtn"
             data-testid={ `${category.strCategory}-category-filter` }
             onClick={ changeDrink ? handleClick1 : handleClick }
@@ -86,27 +90,29 @@ function DrinkRecipes() {
       </div>
       <div className="recipesCard-container">
         {(changeDrink ? drinkPerIngredient : firstDrinks).map((drink, index) => (
-          <Link to={ `/bebidas/${drink.idDrink}` } key={ drink.strDrink }>
-            <Card
-              bg="info"
+          <Link
+            to={ `/bebidas/${drink.idDrink}` }
+            key={ drink.strDrink }
+          >
+            <div
               data-testid={ `${index}-recipe-card` }
               className="card"
             >
-              <Card.Img
+              <img
                 className="cardImg"
                 data-testid={ `${index}-card-img` }
                 src={ drink.strDrinkThumb }
                 alt={ drink.strDrink }
               />
-              <Card.Body>
-                <Card.Title
+              <div className="card-body">
+                <h5
                   className="recipesCard-title"
                   data-testid={ `${index}-card-name` }
                 >
                   {drink.strDrink}
-                </Card.Title>
-              </Card.Body>
-            </Card>
+                </h5>
+              </div>
+            </div>
           </Link>
         ))}
       </div>

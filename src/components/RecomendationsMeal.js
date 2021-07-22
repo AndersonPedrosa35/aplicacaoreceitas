@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Carousel, Card } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { requestMeal } from '../services/api';
 import '../styles/Recomendations.css';
@@ -25,8 +25,8 @@ function RecomendationsMeal() {
           <div className="recomendations-card-container">
             {recomendationsMeal.slice(0, 2).map((meal, index) => (
               <Link to={ `/comidas/${meal.idMeal}` } key={ meal.strMeal }>
-                <Card
-                  bg="info"
+                <div
+                  className="card"
                   data-testid={ `${index}-recomendation-card` }
                 >
                   <img
@@ -34,15 +34,16 @@ function RecomendationsMeal() {
                     src={ meal.strMealThumb }
                     alt={ meal.strMeal }
                   />
-                  <Card.Body>
-                    <Card.Title
+                  <div className="card-body">
+                    <h5
                       className="recomendation-title"
+                      style={ { textDecoration: 'none' } }
                       data-testid={ `${index}-recomendation-title` }
                     >
                       {meal.strMeal}
-                    </Card.Title>
-                  </Card.Body>
-                </Card>
+                    </h5>
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
@@ -51,8 +52,8 @@ function RecomendationsMeal() {
           <div className="recomendations-card-container">
             {recomendationsMeal.slice(2, four).map((meal, index) => (
               <Link to={ `/comidas/${meal.idMeal}` } key={ meal.strMeal }>
-                <Card
-                  bg="info"
+                <div
+                  className="card"
                   data-testid={ `${index + 2}-recomendation-card` }
                 >
                   <img
@@ -60,15 +61,15 @@ function RecomendationsMeal() {
                     src={ meal.strMealThumb }
                     alt={ meal.strMeal }
                   />
-                  <Card.Body>
-                    <Card.Title
+                  <div className="card-body">
+                    <h5
                       data-testid={ `${index + 2}-recomendation-title` }
                       className="recomendation-title"
                     >
                       {meal.strMeal}
-                    </Card.Title>
-                  </Card.Body>
-                </Card>
+                    </h5>
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
@@ -77,8 +78,8 @@ function RecomendationsMeal() {
           <div className="recomendations-card-container">
             {recomendationsMeal.slice(four, six).map((meal, index) => (
               <Link to={ `/comidas/${meal.idMeal}` } key={ meal.strMeal }>
-                <Card
-                  bg="info"
+                <div
+                  className="card"
                   data-testid={ `${index + four}-recomendation-card` }
                 >
                   <img
@@ -86,15 +87,15 @@ function RecomendationsMeal() {
                     src={ meal.strMealThumb }
                     alt={ meal.strMeal }
                   />
-                  <Card.Body>
-                    <Card.Title
+                  <div className="card-body">
+                    <h5
                       data-testid={ `${index + four}-recomendation-title` }
                       className="recomendation-title"
                     >
                       {meal.strMeal}
-                    </Card.Title>
-                  </Card.Body>
-                </Card>
+                    </h5>
+                  </div>
+                </div>
               </Link>
             ))}
           </div>

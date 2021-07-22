@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 import DoneRecipe from '../components/DoneRecipe';
 import Header from '../components/Header';
-import HomeAndReturn from '../components/HomeAndReturn';
+import HomeAndReturn1 from '../components/HomeAndReturn1';
 import '../styles/DoneRecipes(page).css';
 
 function DoneRecipes() {
@@ -16,43 +17,46 @@ function DoneRecipes() {
   useEffect(() => {}, [filterBy]);
 
   return (
-    <div>
+    <div className="done-container-all">
       <Header title="Receitas Feitas" />
-      <div>
-        <button
+      <div className="done-btnContainer">
+        <Button
+          variant="info"
           type="button"
           className="done-category-btn"
           data-testid="filter-by-all-btn"
           onClick={ () => setfilterBy('nenhum') }
         >
           All
-        </button>
-        <button
+        </Button>
+        <Button
+          variant="info"
           type="button"
           className="done-category-btn"
           data-testid="filter-by-food-btn"
           onClick={ () => setfilterBy('comida') }
         >
           Food
-        </button>
-        <button
+        </Button>
+        <Button
+          variant="info"
           type="button"
           className="done-category-btn"
           data-testid="filter-by-drink-btn"
           onClick={ () => setfilterBy('bebida') }
         >
           Drinks
-        </button>
+        </Button>
       </div>
       {recipesToMap.length === 0
-      && <h4 className="no-done-text">Não há receitas feitas</h4>}
+      && <h5 className="no-done-text">Não há receitas feitas</h5>}
       {recipesToMap.map((recipe, index) => (
         <DoneRecipe
           key={ index }
           recipe={ recipe }
           index={ index }
         />))}
-      <HomeAndReturn />
+      <HomeAndReturn1 />
     </div>
   );
 }

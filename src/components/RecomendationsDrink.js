@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Carousel, Card } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { requestDrink } from '../services/api';
 import '../styles/Recomendations.css';
@@ -24,9 +24,12 @@ function RecomendationsDrink() {
         <Carousel.Item>
           <div className="recomendations-card-container">
             {recomendationsDrink.slice(0, 2).map((drink, index) => (
-              <Link to={ `/bebidas/${drink.idDrink}` } key={ drink.strDrink }>
-                <Card
-                  bg="info"
+              <Link
+                to={ `/bebidas/${drink.idDrink}` }
+                key={ drink.strDrink }
+              >
+                <div
+                  className="card"
                   data-testid={ `${index}-recomendation-card` }
                 >
                   <img
@@ -35,15 +38,15 @@ function RecomendationsDrink() {
                     alt={ drink.strDrink }
                   />
                   <span className="recomendation-title">{drink.strAlcoholic}</span>
-                  <Card.Body>
-                    <Card.Title
+                  <div className="card-body">
+                    <h5
                       className="recomendation-title"
                       data-testid={ `${index}-recomendation-title` }
                     >
                       {drink.strDrink}
-                    </Card.Title>
-                  </Card.Body>
-                </Card>
+                    </h5>
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
@@ -52,8 +55,8 @@ function RecomendationsDrink() {
           <div className="recomendations-card-container">
             {recomendationsDrink.slice(2, four).map((drink, index) => (
               <Link to={ `/bebidas/${drink.idDrink}` } key={ drink.strDrink }>
-                <Card
-                  bg="info"
+                <div
+                  className="card"
                   data-testid={ `${index + 2}-recomendation-card` }
                 >
                   <img
@@ -62,15 +65,15 @@ function RecomendationsDrink() {
                     alt={ drink.strDrink }
                   />
                   <span className="recomendation-title">{drink.strAlcoholic}</span>
-                  <Card.Body>
-                    <Card.Title
+                  <div className="card-body">
+                    <h5
                       data-testid={ `${index + 2}-recomendation-title` }
                       className="recomendation-title"
                     >
                       {drink.strDrink}
-                    </Card.Title>
-                  </Card.Body>
-                </Card>
+                    </h5>
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
@@ -79,8 +82,8 @@ function RecomendationsDrink() {
           <div className="recomendations-card-container">
             {recomendationsDrink.slice(four, six).map((drink, index) => (
               <Link to={ `/bebidas/${drink.idDrink}` } key={ drink.strDrink }>
-                <Card
-                  bg="info"
+                <div
+                  className="card"
                   data-testid={ `${index + four}-recomendation-card` }
                 >
                   <img
@@ -89,15 +92,15 @@ function RecomendationsDrink() {
                     alt={ drink.strDrink }
                   />
                   <span className="recomendation-title">{drink.strAlcoholic}</span>
-                  <Card.Body>
-                    <Card.Title
+                  <div className="card-body">
+                    <h5
                       className="recomendation-title"
                       data-testid={ `${index + four}-recomendation-title` }
                     >
                       {drink.strDrink}
-                    </Card.Title>
-                  </Card.Body>
-                </Card>
+                    </h5>
+                  </div>
+                </div>
               </Link>
             ))}
           </div>

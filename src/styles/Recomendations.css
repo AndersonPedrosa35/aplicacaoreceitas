@@ -12,28 +12,44 @@ img {
 
 .recomendation-title {
   color: black;
+}
 
+.recomendation-link {
+  list-style: none;
 }
 
 .black-bg {
   background-color: black;
 }
 
-/* .card {
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+.carousel {
+  z-index: 0;
+}
+
+.carousel-control-next-icon {
+  filter: invert(1);
+  margin: 180px 16px 0 0;
+  padding: 15px;
+}
+
+.carousel-control-prev-icon {
+  filter: invert(1);
+  margin: 180px 0 0 16px;
+  padding: 15px;
+}
+
+.card {
+  background-color: rgb(23, 162, 184);
+  border: none;
+  border-radius: 15px;
+  color: black;
   height: 238px;
   margin: 5px;
   max-width: 100%;
   text-align: center;
   width: 169px;
-} */
-
-.carousel {
-  z-index: 0;
 }
 
-/* .carousel-control-next-icon, .carousel-control-prev-icon {
-  filter: invert(1);
-  margin-top: 160px;
-  padding: 15px;
-} */
+.card-body {
+  padding: 10px;
+}

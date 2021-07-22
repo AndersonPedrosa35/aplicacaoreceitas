@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Search from './Search';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
+import { Context } from '../context/ContextForm';
 import '../styles/Header.css';
 
 function Header({ title }) {
-  const [search, setSearch] = useState(false);
+  const { onSearch, setOnSearch } = useContext(Context);
 
   const showExplore = (title.includes('Explorar') && !title.includes('Origem'));
   const showRecipes = (title.includes('Receitas') || title.includes('Perfil'));
 
   function showSearch() {
-    setSearch(!search);
+    setOnSearch(!onSearch);
   }
   return (
     <div className="header-container">
@@ -37,7 +37,6 @@ function Header({ title }) {
             alt="Search Icon"
           />
         ) : '' }
-      {search && <Search />}
     </div>
   );
 }
@@ -46,4 +45,4 @@ Header.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default React.memo(Header);
+export default Header;

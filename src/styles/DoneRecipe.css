@@ -1,46 +1,77 @@
+.done-align {
+  margin: auto;
+  width: 21em;
+}
+
+.done-card {
+  background-color: rgb(23, 162, 184);
+  border-radius: 15px;
+  display: flex;
+  margin: 15px 0;
+  max-width: 100%;
+  text-align: center;
+}
+
+.done-img-container {
+  width: 176px;
+}
+
+.done-img {
+  border-radius: 15px 0 0 15px;
+  width: 100px;
+}
+
 .done-body {
   align-items: center;
   display: flex;
   flex-direction: column;
+  font-size: 0.9rem;
   justify-content: center;
 }
 
-.done-card {
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  margin: 15px 0;
-  max-width: 100%;
-  padding: 5px;
-  text-align: center;
-  width: 330px;
+.done-category {
+  font-size: 12px;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+  width: 100px;
 }
 
 .done-card-title {
+  color: black;
   display: inline-block;
-  max-height: 2.3em;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  word-wrap: break-word;
+  white-space: nowrap;
+  width: 158px;
 }
 
-.done-copyText {
-  width: 95px;
+.done-date {
+  margin-bottom: 0.4rem;
 }
 
-.done-img {
-  width: 50%;
-}
-
-.done-recipes {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.done-tag {
+  background-color: black;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  margin-bottom: 0.1rem;
+  padding: 0 7px;
 }
 
 .done-share-btn {
   background-color: inherit;
   border: none;
-  margin-left: 7px;
+  margin-top: 0.2rem;
   outline: none;
+}
+
+.done-share-btn:focus {
+  border: none;
+  outline: none;
+}
+
+.done-copyText {
+  margin: 3px;
 }

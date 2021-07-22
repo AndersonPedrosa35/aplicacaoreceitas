@@ -1,10 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import { exploreIngredientsDrink } from '../services/api';
 import { drinkByIngredient } from '../services/searchApi';
 import '../styles/ExploreDrinkAndFoodIngredient(page).css';
 import { Context } from '../context/ContextForm';
+import Loading from '../components/Loading';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
@@ -14,12 +15,15 @@ function ExploreDrinkIngredient() {
     setDrinkPerIngredient,
     changeDrink,
     setChangeDrink } = useContext(Context);
+  const [loading, setLoading] = useState(null);
   const numOfIngredients = 12;
 
   useEffect(() => {
+    setLoading(true);
     const fetchDrinkIngredients = async () => {
       const drinks = await exploreIngredientsDrink();
       setFirstDrinkIngredients(drinks.slice(0, numOfIngredients));
+      setLoading(false);
     };
     fetchDrinkIngredients();
   }, [setFirstDrinkIngredients]);
@@ -30,6 +34,7 @@ function ExploreDrinkIngredient() {
     setDrinkPerIngredient(drinks.slice(0, numOfIngredients));
   }
 
+  if (loading) return <Loading />;
   return (
     <div>
       <Header title="Explorar Ingredientes" />

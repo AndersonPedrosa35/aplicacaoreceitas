@@ -1,11 +1,15 @@
 .explore-container {
   align-items: center;
-  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 84vh;
-  min-width: 84vw;
+  min-height: 74vh;
+  min-width: 74vw;
+}
+
+.explore-container-all {
+  background-color: black;
+  height: 600px;
 }
 
 .explore-videoAndBtn {
