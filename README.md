@@ -93,7 +93,7 @@ Os end-points também são bastante ricos, você pode [vê-los aqui](https://www
 
 ### Como utilizar
 
-Para visualizar o projeto em seu maquina, basta clonar o repositório [https://github.com/AndersonPedrosa35/aplicacaoreceitas],
-criar um branch com [git checkout -b NOME_DA_SUA_BRANCH] e executar [NPM INSTALL] seguido de [NPM START], se é da sua 
-preferẽncia usar NPM, use o YARN.
+Para visualizar o projeto em seu maquina, basta clonar o repositório ``` https://github.com/AndersonPedrosa35/aplicacaoreceitas ```,
+criar um branch com ``` git checkout -b NOME_DA_SUA_BRANCH ``` e executar ``` NPM INSTALL ``` seguido de ``` NPM START ```, se é da sua 
+preferẽncia usar ``` NPM ```, use o ``` YARN ```.
 
