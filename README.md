@@ -97,3 +97,9 @@ Para visualizar o projeto em seu maquina, basta clonar o repositório ``` https:
 criar um branch com ``` git checkout -b NOME_DA_SUA_BRANCH ``` e executar ``` NPM INSTALL ``` seguido de ``` NPM START ```, se é da sua 
 preferẽncia usar ``` NPM ```, use o ``` YARN ```.
 
+### DEPLOY DO PROJETO
+``` 
+update-receitas.vercel.app 
+```
+
+
